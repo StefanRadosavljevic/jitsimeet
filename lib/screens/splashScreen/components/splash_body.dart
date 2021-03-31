@@ -84,6 +84,7 @@ class _SplashBodyState extends State<SplashBody> {
                       text: 'Nastavite',
                       press: () {},
                     ),
+                    Spacer(),
                   ],
                 ),
               ),
