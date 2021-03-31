@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jitsimeet/screens/splashScreen/components/splash_content.dart';
+import 'package:jitsimeet/size_config.dart';
 
 class SplashBody extends StatefulWidget {
   @override
@@ -33,13 +34,46 @@ class _SplashBodyState extends State<SplashBody> {
             Expanded(
               flex: 3,
               child: PageView.builder(
-                itemBuilder: (context, index) => SplashContent(),
+                onPageChanged: (value) {
+                  setState(() {
+                    currentPage = value;
+                  });
+                },
+                itemCount: splashData.length,
+                itemBuilder: (context, index) => SplashContent(
+                  image: splashData[index]["image"],
+                  text: splashData[index]['text'],
+                ),
               ),
             ),
-            Expanded(),
+            Expanded(
+              flex: 3,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(20),
+                ),
+                child: Column(
+                  children: <Widget>[
+                    Spacer(),
+                    // Row(
+                    //   children: List.generate(
+                    //     splashData.length,
+                    //     (index) => buildDot(index: index),
+                    //   ),
+                    // ),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
+
+  // todo: implement animated container
+  // AnimatedContainer buildDot({int index}) {
+  //   return AnimatedContainer();
+  // }
 }

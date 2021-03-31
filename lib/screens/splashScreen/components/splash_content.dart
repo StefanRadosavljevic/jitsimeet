@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 
-class SplashContent extends StatefulWidget {
-  @override
-  _SplashContentState createState() => _SplashContentState();
-}
+import '../../../size_config.dart';
 
-class _SplashContentState extends State<SplashContent> {
+class SplashContent extends StatelessWidget {
+  final String text, image;
+
+  const SplashContent({Key key, this.text, this.image}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: <Widget>[
+        Text(
+          text,
+          textAlign: TextAlign.center,
+        ),
+        Spacer(),
+        Image.asset(
+          image,
+          height: getProportionateScreenHeight(265),
+          width: getProportionateScreenWidth(235),
+        ),
+      ],
+    );
   }
 }
