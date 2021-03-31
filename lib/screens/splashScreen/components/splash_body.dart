@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jitsimeet/components/default_button.dart';
 import 'package:jitsimeet/screens/splashScreen/components/splash_content.dart';
 import 'package:jitsimeet/size_config.dart';
+
+import '../../../constants.dart';
 
 class SplashBody extends StatefulWidget {
   @override
@@ -31,6 +34,20 @@ class _SplashBodyState extends State<SplashBody> {
         width: double.infinity,
         child: Column(
           children: <Widget>[
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
+            Text(
+              "PetCare",
+              style: TextStyle(
+                fontSize: getProportionateScreenWidth(36),
+                color: kPrimaryColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
             Expanded(
               flex: 3,
               child: PageView.builder(
@@ -55,13 +72,18 @@ class _SplashBodyState extends State<SplashBody> {
                 child: Column(
                   children: <Widget>[
                     Spacer(),
-                    // Row(
-                    //   children: List.generate(
-                    //     splashData.length,
-                    //     (index) => buildDot(index: index),
-                    //   ),
-                    // ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        splashData.length,
+                        (index) => buildDot(index: index),
+                      ),
+                    ),
                     Spacer(),
+                    DefaultButton(
+                      text: 'Nastavite',
+                      press: () {},
+                    ),
                   ],
                 ),
               ),
@@ -72,8 +94,16 @@ class _SplashBodyState extends State<SplashBody> {
     );
   }
 
-  // todo: implement animated container
-  // AnimatedContainer buildDot({int index}) {
-  //   return AnimatedContainer();
-  // }
+  AnimatedContainer buildDot({int index}) {
+    return AnimatedContainer(
+      duration: kAnimationDuration,
+      margin: EdgeInsets.only(right: 5),
+      height: 6,
+      width: currentPage == index ? 20 : 6,
+      decoration: BoxDecoration(
+        color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),
+        borderRadius: BorderRadius.circular(3),
+      ),
+    );
+  }
 }

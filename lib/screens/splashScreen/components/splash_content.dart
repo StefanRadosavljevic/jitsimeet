@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class SplashContent extends StatelessWidget {
@@ -13,8 +14,12 @@ class SplashContent extends StatelessWidget {
         Text(
           text,
           textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: getProportionateScreenWidth(22),
+            color: kTextColor,
+          ),
         ),
-        Spacer(),
+        Spacer(flex: 2),
         Image.asset(
           image,
           height: getProportionateScreenHeight(265),
