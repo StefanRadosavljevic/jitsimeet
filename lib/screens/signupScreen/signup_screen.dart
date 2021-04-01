@@ -12,7 +12,7 @@ class SignUpScreen extends StatelessWidget {
           'Register account',
           style: TextStyle(color: kTextColor),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: kPrimaryColor,
         elevation: 0,
       ),
       body: SignUpBody(),

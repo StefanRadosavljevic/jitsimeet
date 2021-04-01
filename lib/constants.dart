@@ -20,14 +20,14 @@ const defaultDuration = Duration(milliseconds: 250);
 // Form Error
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-const String kEmailNullError = "Please Enter your email";
-const String kInvalidEmailError = "Please Enter Valid Email";
-const String kPassNullError = "Please Enter your password";
-const String kShortPassError = "Password is too short";
-const String kMatchPassError = "Passwords don't match";
-const String kNamelNullError = "Please Enter your name";
-const String kPhoneNumberNullError = "Please Enter your phone number";
-const String kAddressNullError = "Please Enter your address";
+const String kEmailNullError = "Molimo unesitite vas email.";
+const String kInvalidEmailError = "Molimo unesite validan email.";
+const String kPassNullError = "Molimo unesite lozinku.";
+const String kShortPassError = "Lozinka nema dovoljno karaktera.";
+const String kMatchPassError = "Lozinke se ne podudaraju.";
+const String kNamelNullError = "Molimo unesite vase ime.";
+const String kPhoneNumberNullError = "Molimo unesite vas broj telefona.";
+const String kAddressNullError = "Molimo unesite vasu adresu.";
 
 final otpInputDecoration = InputDecoration(
   contentPadding:
@@ -40,6 +40,7 @@ final otpInputDecoration = InputDecoration(
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
-    borderSide: BorderSide(color: kTextColor),
+    borderSide: BorderSide(color: Colors.green),
+    // borderSide: BorderSide.none,
   );
 }

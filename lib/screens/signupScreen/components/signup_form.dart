@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jitsimeet/components/custom_surfix_icon.dart';
 import 'package:jitsimeet/components/default_button.dart';
+import 'package:jitsimeet/components/form_error.dart';
 import 'package:jitsimeet/screens/completeProfileScreen/complete_profile_screen.dart';
 
 import '../../../constants.dart';
@@ -42,6 +43,7 @@ class _SignUpFormState extends State<SignUpForm> {
             buildPasswordFormField(),
             SizedBox(height: getProportionateScreenHeight(30)),
             buildConfirmPasswordFormField(),
+            FormError(errors: errors),
             SizedBox(height: getProportionateScreenHeight(40)),
             DefaultButton(
               text: 'Nastavite',
@@ -120,9 +122,7 @@ class _SignUpFormState extends State<SignUpForm> {
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5.0),
-        ),
+        border: outlineInputBorder(),
       ),
     );
   }
@@ -151,14 +151,12 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: InputDecoration(
-        hintText: "Re-enter your password",
+        hintText: "Unesite ponovo lozinku",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5.0),
-        ),
+        border: outlineInputBorder(),
       ),
     );
   }
