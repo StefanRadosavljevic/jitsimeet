@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jitsimeet/components/default_button.dart';
+import 'package:jitsimeet/screens/signupScreen/signup_screen.dart';
 import 'package:jitsimeet/screens/splashScreen/components/splash_content.dart';
 import 'package:jitsimeet/size_config.dart';
 
@@ -82,7 +83,10 @@ class _SplashBodyState extends State<SplashBody> {
                     Spacer(),
                     DefaultButton(
                       text: 'Nastavite',
-                      press: () {},
+                      press: () {
+                        print("pritisnuto");
+                        Navigator.pushNamed(context, SignUpScreen.routeName);
+                      },
                     ),
                     Spacer(),
                   ],
