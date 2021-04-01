@@ -28,6 +28,11 @@ const String kMatchPassError = "Lozinke se ne podudaraju.";
 const String kNamelNullError = "Molimo unesite vase ime.";
 const String kPhoneNumberNullError = "Molimo unesite vas broj telefona.";
 const String kAddressNullError = "Molimo unesite vasu adresu.";
+const String kTipNullError = "Molimo unesite tip ljubimca.";
+const String kImeLjubimcaNullError = "Molimo unesite ime vaseg ljubimca";
+const String kgodineLjubimcaNullError = "Molimo unesite godine vaseg ljubimca";
+const String kRasaLjubimcaNullError = "Molimo unesite rasu.";
+const String ktezinaLjubimcaNullError = "Molimo unesite tezinu ljubimca.";
 
 final otpInputDecoration = InputDecoration(
   contentPadding:

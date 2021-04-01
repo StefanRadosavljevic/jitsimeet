@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:jitsimeet/components/custom_surfix_icon.dart';
 import 'package:jitsimeet/components/default_button.dart';
 import 'package:jitsimeet/components/form_error.dart';
-import 'package:jitsimeet/screens/completeProfilePetScreen/complete_profile_pet_screen.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
-class CompleteProfileForm extends StatefulWidget {
+class CompleteProfilePetForm extends StatefulWidget {
   @override
-  _CompleteProfileFormState createState() => _CompleteProfileFormState();
+  _CompleteProfilePetFormState createState() => _CompleteProfilePetFormState();
 }
 
-class _CompleteProfileFormState extends State<CompleteProfileForm> {
+class _CompleteProfilePetFormState extends State<CompleteProfilePetForm> {
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
-  String firstName, lastName, phoneNumber, address;
+  String tip, ime, godine, tezina, rasa;
 
   // on next button go to next textfield
   get node => FocusScope.of(context);
@@ -40,21 +39,23 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       key: _formKey,
       child: Column(
         children: [
-          buildFirstNameField(),
+          buildTypeField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          buildLastNameField(),
+          buildNameField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          buildAddressField(),
+          buildYearsField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          buildPhoneField(),
+          buildRasaField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          buildTezinaField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
             text: 'Nastavite',
             press: () {
               if (_formKey.currentState.validate()) {
-                Navigator.pushNamed(
-                    context, CompleteProfilePetScreen.routeName);
+                // Navigator.pushNamed(context, OtpScreen.routename);
               }
             },
           ),
@@ -63,26 +64,25 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     );
   }
 
-  TextFormField buildFirstNameField() {
+  TextFormField buildTypeField() {
     return TextFormField(
-      onSaved: (newValue) => firstName = newValue,
+      onSaved: (newValue) => tip = newValue,
       onEditingComplete: () => node.nextFocus(),
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: kNamelNullError);
+          removeError(error: kTipNullError);
         }
         return null;
       },
       validator: (value) {
         if (value.isEmpty) {
-          addError(error: kNamelNullError);
+          addError(error: kTipNullError);
           return "";
         }
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Ime",
-        hintText: "Unesite vase ime",
+        hintText: "Unesite tip vaseg ljubimca. (pas ili macka)",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
         border: outlineInputBorder(),
@@ -90,26 +90,25 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     );
   }
 
-  TextFormField buildLastNameField() {
+  TextFormField buildNameField() {
     return TextFormField(
-      onSaved: (newValue) => lastName = newValue,
+      onSaved: (newValue) => ime = newValue,
       onEditingComplete: () => node.nextFocus(),
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: kNamelNullError);
+          removeError(error: kImeLjubimcaNullError);
         }
         return null;
       },
       validator: (value) {
         if (value.isEmpty) {
-          addError(error: kNamelNullError);
+          addError(error: kImeLjubimcaNullError);
           return "";
         }
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Prezime",
-        hintText: "Unesite vase prezime",
+        hintText: "Unesite ime vaseg ljubimca.",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
         border: outlineInputBorder(),
@@ -117,60 +116,79 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     );
   }
 
-  TextFormField buildPhoneField() {
+  TextFormField buildYearsField() {
     return TextFormField(
-      keyboardType: TextInputType.phone,
+      onSaved: (newValue) => godine = newValue,
       onEditingComplete: () => node.nextFocus(),
-      onSaved: (newValue) => phoneNumber = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: kPhoneNumberNullError);
+          removeError(error: kgodineLjubimcaNullError);
         }
         return null;
       },
       validator: (value) {
         if (value.isEmpty) {
-          addError(error: kPhoneNumberNullError);
+          addError(error: kgodineLjubimcaNullError);
           return "";
         }
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Broj telefona",
-        hintText: "Unesite vas broj telefona",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        hintText: "Unesite godine vaseg ljubimca. (pas ili macka)",
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
         border: outlineInputBorder(),
       ),
     );
   }
 
-  TextFormField buildAddressField() {
+  TextFormField buildRasaField() {
     return TextFormField(
-      onSaved: (newValue) => address = newValue,
+      onSaved: (newValue) => rasa = newValue,
       onEditingComplete: () => node.nextFocus(),
       onChanged: (value) {
         if (value.isNotEmpty) {
-          removeError(error: kAddressNullError);
+          removeError(error: kRasaLjubimcaNullError);
         }
         return null;
       },
       validator: (value) {
         if (value.isEmpty) {
-          addError(error: kAddressNullError);
+          addError(error: kRasaLjubimcaNullError);
           return "";
         }
         return null;
       },
       decoration: InputDecoration(
-        labelText: "Adresa",
-        hintText: "Unesite vasu adresu.",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        hintText: "Unesite rasu vaseg ljubimca.",
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
+        border: outlineInputBorder(),
+      ),
+    );
+  }
+
+  TextFormField buildTezinaField() {
+    return TextFormField(
+      onSaved: (newValue) => godine = newValue,
+      onEditingComplete: () => node.nextFocus(),
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kgodineLjubimcaNullError);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty) {
+          addError(error: kgodineLjubimcaNullError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        hintText: "Unesite tezinu vaseg ljubimca.",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
         border: outlineInputBorder(),
       ),
     );
