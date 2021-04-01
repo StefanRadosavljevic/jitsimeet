@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jitsimeet/constants.dart';
 import 'package:jitsimeet/routes.dart';
 import 'package:jitsimeet/screens/splashScreen/splash_screen.dart';
 

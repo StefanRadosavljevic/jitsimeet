@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jitsimeet/components/custom_surfix_icon.dart';
 import 'package:jitsimeet/components/default_button.dart';
+import 'package:jitsimeet/screens/completeProfileScreen/complete_profile_screen.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -47,6 +48,7 @@ class _SignUpFormState extends State<SignUpForm> {
               press: () {
                 if (_formKey.currentState.validate()) {
                   _formKey.currentState.save();
+                  Navigator.pushNamed(context, CompleteProfileScreen.routeName);
                 }
               },
             ),
@@ -82,9 +84,10 @@ class _SignUpFormState extends State<SignUpForm> {
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5.0),
-        ),
+        border: outlineInputBorder(),
+        // border: OutlineInputBorder(
+        //   borderRadius: BorderRadius.circular(5.0),
+        // ),
       ),
     );
   }
