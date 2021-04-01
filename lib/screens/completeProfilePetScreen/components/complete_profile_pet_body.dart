@@ -17,9 +17,10 @@ class CompleteProfilePetBody extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
-                Text("Complete Profile", style: headingStyle),
+                Text("Podaci vaseg ljubimca", style: headingStyle),
                 Text(
-                  "Complete your details or continue  \nwith social media",
+                  "Unesite podatke o vasem ljubimcu",
+                  style: textStyle,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.06),

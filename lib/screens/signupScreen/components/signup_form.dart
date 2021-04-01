@@ -14,9 +14,11 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  String email, password, confirmPassword;
+  String email, password, confirmPassword, phoneNumber;
   bool remember = false;
   final List<String> errors = [];
+
+  get node => null;
 
   void addError({String error}) {
     if (!errors.contains(error))
@@ -43,6 +45,8 @@ class _SignUpFormState extends State<SignUpForm> {
             buildPasswordFormField(),
             SizedBox(height: getProportionateScreenHeight(30)),
             buildConfirmPasswordFormField(),
+            SizedBox(height: getProportionateScreenHeight(30)),
+            buildPhoneField(),
             FormError(errors: errors),
             SizedBox(height: getProportionateScreenHeight(40)),
             DefaultButton(
@@ -56,6 +60,35 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ],
         ));
+  }
+
+  TextFormField buildPhoneField() {
+    return TextFormField(
+      keyboardType: TextInputType.phone,
+      onEditingComplete: () => node.nextFocus(),
+      onSaved: (newValue) => phoneNumber = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kPhoneNumberNullError);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty) {
+          addError(error: kPhoneNumberNullError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        hintText: "Broj telefona",
+        // If  you are using latest version of flutter then lable text and hint text shown like this
+        // if you r using flutter less then 1.20.* then maybe this is not working properly
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Phone.svg"),
+        border: outlineInputBorder(),
+      ),
+    );
   }
 
   TextFormField buildEmailFormField() {

@@ -9,10 +9,15 @@ const kSecondaryColor = Color(0xFF329D9C);
 const kAnimationDuration = Duration(milliseconds: 200);
 
 final headingStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(28),
+  fontSize: getProportionateScreenWidth(24),
   fontWeight: FontWeight.bold,
-  color: Colors.black,
+  color: kTextColor,
   height: 1.5,
+);
+
+final textStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(16),
+  color: kPrimaryColor,
 );
 
 const defaultDuration = Duration(milliseconds: 250);

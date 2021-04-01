@@ -17,10 +17,17 @@ class SignUpBody extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 SizedBox(height: SizeConfig.screenHeight * 0.04), // 4%
-                Text("Register Account", style: headingStyle),
                 Text(
-                  "Complete your details or continue \nwith social media",
-                  textAlign: TextAlign.center,
+                  "Napravite nalog",
+                  style: headingStyle,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: Text(
+                    "Unesite svoje podatke",
+                    style: textStyle,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                 SignUpForm(),

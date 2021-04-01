@@ -16,11 +16,15 @@ class CompleteProfileBody extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SizedBox(height: SizeConfig.screenHeight * 0.03),
+                SizedBox(height: SizeConfig.screenHeight * 0.04),
                 Text("Unesite vase podatke", style: headingStyle),
-                Text(
-                  "Complete your details or continue  \nwith social media",
-                  textAlign: TextAlign.center,
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: Text(
+                    "Popunite vase podatke",
+                    style: textStyle,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.06),
                 CompleteProfileForm(),

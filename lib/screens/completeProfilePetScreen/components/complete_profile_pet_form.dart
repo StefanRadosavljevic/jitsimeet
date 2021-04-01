@@ -134,7 +134,7 @@ class _CompleteProfilePetFormState extends State<CompleteProfilePetForm> {
         return null;
       },
       decoration: InputDecoration(
-        hintText: "Unesite godine vaseg ljubimca. (pas ili macka)",
+        hintText: "Godine starosti vaseg ljubimca. (pas ili macka)",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/User.svg"),
         border: outlineInputBorder(),
