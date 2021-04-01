@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jitsimeet/components/custom_surfix_icon.dart';
+import 'package:jitsimeet/components/default_button.dart';
 import 'package:jitsimeet/components/form_error.dart';
 
 import '../../../constants.dart';
@@ -50,6 +51,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   final List<String> errors = [];
   String firstName, lastName, phoneNumber, address;
 
+  // on next button go to next textfield
+  get node => FocusScope.of(context);
+
   void addError({String error}) {
     if (!errors.contains(error))
       setState(() {
@@ -79,6 +83,14 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           buildAddressField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
+          DefaultButton(
+            text: 'Nastavite',
+            press: () {
+              if (_formKey.currentState.validate()) {
+                // Navigator.pushNamed(context, OtpScreen.routename);
+              }
+            },
+          ),
         ],
       ),
     );
@@ -87,6 +99,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildFirstNameField() {
     return TextFormField(
       onSaved: (newValue) => firstName = newValue,
+      onEditingComplete: () => node.nextFocus(),
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kNamelNullError);
@@ -112,6 +125,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildLastNameField() {
     return TextFormField(
       onSaved: (newValue) => lastName = newValue,
+      onEditingComplete: () => node.nextFocus(),
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kNamelNullError);
@@ -137,6 +151,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildPhoneField() {
     return TextFormField(
       keyboardType: TextInputType.phone,
+      onEditingComplete: () => node.nextFocus(),
       onSaved: (newValue) => phoneNumber = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
@@ -166,6 +181,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
     return TextFormField(
       keyboardType: TextInputType.phone,
       onSaved: (newValue) => address = newValue,
+      onEditingComplete: () => node.nextFocus(),
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kAddressNullError);
