@@ -17,7 +17,7 @@ class CompleteProfileBody extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
-                Text("Complete Profile", style: headingStyle),
+                Text("Unesite vase podatke", style: headingStyle),
                 Text(
                   "Complete your details or continue  \nwith social media",
                   textAlign: TextAlign.center,

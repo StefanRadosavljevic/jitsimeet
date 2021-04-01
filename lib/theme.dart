@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'constants.dart';
+import 'package:jitsimeet/constants.dart';
 
 ThemeData theme() {
   return ThemeData(
     scaffoldBackgroundColor: Colors.white,
-    hintColor: kTextColor,
+    fontFamily: "Muli",
     appBarTheme: appBarTheme(),
     textTheme: textTheme(),
     inputDecorationTheme: inputDecorationTheme(),

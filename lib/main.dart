@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jitsimeet/routes.dart';
 import 'package:jitsimeet/screens/splashScreen/splash_screen.dart';
+import 'package:jitsimeet/theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: theme(),
       initialRoute: SplashScreen.routeName,
       routes: routes,
     );

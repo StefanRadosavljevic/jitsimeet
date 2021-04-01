@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jitsimeet/constants.dart';
+import 'package:jitsimeet/components/appbar.dart';
 import 'package:jitsimeet/screens/signupScreen/components/signup_body.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -7,14 +7,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Register account',
-          style: TextStyle(color: kTextColor),
-        ),
-        backgroundColor: kPrimaryColor,
-        elevation: 0,
-      ),
+      appBar: myAppBar(),
       body: SignUpBody(),
     );
   }
