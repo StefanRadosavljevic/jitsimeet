@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jitsimeet/components/custom_surfix_icon.dart';
 import 'package:jitsimeet/components/default_button.dart';
 import 'package:jitsimeet/components/form_error.dart';
-import 'package:jitsimeet/screens/completeProfileScreen/complete_profile_screen.dart';
+import 'package:jitsimeet/screens/otpScreen/otpScreen.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -54,7 +54,7 @@ class _SignUpFormState extends State<SignUpForm> {
               press: () {
                 if (_formKey.currentState.validate()) {
                   _formKey.currentState.save();
-                  Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                  Navigator.pushNamed(context, OtpScreen.routeName);
                 }
               },
             ),
