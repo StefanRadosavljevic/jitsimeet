@@ -6,7 +6,7 @@ AppBar myAppBar() {
   return AppBar(
     leading: BackButton(color: kTextColor),
     title: Text(
-      'Register account',
+      "PetCare",
       style: TextStyle(color: kTextColor),
     ),
     backgroundColor: kPrimaryLightColor,
