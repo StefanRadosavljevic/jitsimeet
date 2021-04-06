@@ -33,7 +33,7 @@ class SignUpBody extends StatelessWidget {
                 SignUpForm(),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                 Text(
-                  'By continuing your confirm that you agree \nwith our Term and Condition',
+                  'Klikom na dugme "Nastavite" \nslažete se sa uslovima korišćenja.',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.caption,
                 )
