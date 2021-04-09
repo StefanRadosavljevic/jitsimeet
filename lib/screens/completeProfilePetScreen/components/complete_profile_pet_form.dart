@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jitsimeet/components/custom_surfix_icon.dart';
 import 'package:jitsimeet/components/default_button.dart';
 import 'package:jitsimeet/components/form_error.dart';
+import 'package:jitsimeet/screens/mainScreen/mainScreen.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -55,7 +56,7 @@ class _CompleteProfilePetFormState extends State<CompleteProfilePetForm> {
             text: 'Nastavite',
             press: () {
               if (_formKey.currentState.validate()) {
-                // Navigator.pushNamed(context, OtpScreen.routename);
+                Navigator.pushNamed(context, MainScreen.routeName);
               }
             },
           ),
