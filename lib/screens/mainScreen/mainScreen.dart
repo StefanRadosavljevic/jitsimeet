@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jitsimeet/components/appbar.dart';
 import 'package:jitsimeet/screens/mainScreen/components/mainBody.dart';
 
 class MainScreen extends StatelessWidget {
@@ -7,7 +6,11 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        // leading: Icon(Icons.menu),
+        backgroundColor: Colors.transparent,
+      ),
       body: MainBody(),
     );
   }

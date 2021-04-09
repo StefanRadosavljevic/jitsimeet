@@ -9,7 +9,6 @@ class MainBody extends StatelessWidget {
       child: Column(
         children: <Widget>[
           HeaderWithSearchBox(size: size),
-          
         ],
       ),
     );

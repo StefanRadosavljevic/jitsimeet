@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jitsimeet/components/small_button.dart';
 
 import '../../../constants.dart';
-import '../../../size_config.dart';
 
 class HeaderWithSearchBox extends StatelessWidget {
   final Size size;
@@ -9,40 +9,44 @@ class HeaderWithSearchBox extends StatelessWidget {
   const HeaderWithSearchBox({Key key, this.size}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: kDefaultPadding * 2.5),
-      height: getProportionateScreenHeight(56),
-      child: Stack(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(
-              left: kDefaultPadding,
-              right: kDefaultPadding,
-              bottom: 36 + kDefaultPadding,
-            ),
-            height: size.height * 0.2 - 27,
-            decoration: BoxDecoration(
-              color: kPrimaryColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(36),
-                bottomRight: Radius.circular(36),
-              ),
-            ),
-            child: Row(
+    var size = MediaQuery.of(context).size;
+    return Stack(
+      children: <Widget>[
+        Container(
+          height: size.height * .45,
+          decoration: BoxDecoration(
+            color: kLightBackground,
+          ),
+        ),
+        SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Text(
-                  'Hi Uishopy!',
-                  style: Theme.of(context).textTheme.headline5.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                  "Cao [name]!",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline5
+                      .copyWith(color: kTextColor, fontWeight: FontWeight.bold),
                 ),
-                Spacer(),
-                // Image.asset("assets/images/logo.png")
+                Text(
+                  "Cao [name]!",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1
+                      .copyWith(color: kTextColor, fontWeight: FontWeight.bold),
+                ),
+                SmallButton(
+                  text: 'Pozovi',
+                ),
               ],
             ),
           ),
-          
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
